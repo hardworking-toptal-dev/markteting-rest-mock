@@ -1,0 +1,8 @@
+  "apikey": "xxxxx"
+  "mobile": "18763245666"
+  "text": "hello i am body"
+  "extend": "dddd"
+  "uid": "uuuuuuuuid"
+  "callback_url": "http://calback"
+  "register": true
+  "mobile_stat": false

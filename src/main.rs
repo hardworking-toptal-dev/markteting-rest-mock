@@ -1,13 +1,18 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 
-#[macro_use]
-extern crate rocket;
+#[deny(overflowing_literals)]
 
-#[post("/single_send.json")]
-fn index() -> &'static str {
-    "Hello, world!"
-}
+#[macro_use] extern crate rocket;
+#[macro_use] extern crate rocket_contrib;
+#[macro_use] extern crate serde_derive;
+
+
+
+mod yunpian;
+// use yunpian::single_send;
 
 fn main() {
-    rocket::ignite().mount("/v2/sms", routes![index]).launch();
+    rocket::ignite()
+        .mount("/v2/sms", routes![yunpian::single_send])
+        .launch();
 }
