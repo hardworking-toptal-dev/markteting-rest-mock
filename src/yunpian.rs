@@ -10,11 +10,11 @@ pub struct SingleSendData {
     apikey: String,
     mobile: String,
     text: String,
-    extend: String,
-    uid: String,
-    callback_url: String,
-    register: bool,
-    mobile_stat: bool,
+    extend: Option<String>,
+    uid: Option<String>,
+    callback_url: Option<String>,
+    register: Option<bool>,
+    mobile_stat: Option<bool>,
 }
 
 #[post("/single_send.json", data = "<send>")]
