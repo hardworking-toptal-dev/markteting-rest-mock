@@ -17,12 +17,15 @@ jobs:
 - template: ci/rustfmt.yml@templates
   parameters:
     name: rustfmt
+    rust_version: nightly
     displayName: Check formatting
 
 # Cargo check
 - template: ci/cargo-check.yml@templates
   parameters:
     name: cargo_check
+    # rust_version: 1.38.0
+    rust_version: nightly
     displayName: Cargo check
 
 # This represents the minimum Rust version supported.
@@ -30,7 +33,8 @@ jobs:
 - template: ci/cargo-check.yml@templates
   parameters:
     name: minrust
-    rust_version: 1.36.0 # The 2018 edition
+    # rust_version: 1.38.0 # The 2018 edition
+    rust_version: nightly
     displayName: Check rust min ver
 
 ################
@@ -44,6 +48,7 @@ jobs:
       - cargo_check
     name: cargo_test_stable
     displayName: Cargo test
+    rust_version: nightly
     cross: true # Test on Windows and macOS
 
 # Test nightly
@@ -96,7 +101,7 @@ jobs:
       - cargo_check
       - cargo_test_stable
       - cargo_cross
-   rust_version: stable
+   rust_version: nightly
    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
    contents: |
      *
