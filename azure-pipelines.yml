@@ -8,8 +8,8 @@ resources:
   repositories:
     - repository: templates
       type: github
-      name: xoac/rust-azure-pipelines
-      ref: refs/heads/master ## TODO you may want to change it to refs/tags/TAG_NAME.
+      name: foxundermoon/rust-azure-pipelines
+      ref: refs/heads/nightly ## TODO you may want to change it to refs/tags/TAG_NAME.
       endpoint: github_release
 
 jobs:
