@@ -47,7 +47,7 @@ jobs:
 #   parameters:
 #     dependsOn:
 #       - cargo_check
-#     name: cargo_test_stable
+#     name: cargo_test_nightly
 #     displayName: Cargo test
 #     rust_version: nightly
 #     cross: true # Test on Windows and macOS
