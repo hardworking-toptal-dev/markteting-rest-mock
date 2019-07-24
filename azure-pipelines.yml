@@ -10,7 +10,7 @@ resources:
       type: github
       name: xoac/rust-azure-pipelines
       ref: refs/heads/master ## TODO you may want to change it to refs/tags/TAG_NAME.
-      endpoint: PipelinesTemplates
+      # endpoint: PipelinesTemplates
 
 jobs:
 # Check formatting
@@ -30,7 +30,7 @@ jobs:
 - template: ci/cargo-check.yml@templates
   parameters:
     name: minrust
-    rust_version: 1.31.0 # The 2018 edition
+    rust_version: 1.36.0 # The 2018 edition
     displayName: Check rust min ver
 
 ################
@@ -74,17 +74,17 @@ jobs:
 # TODO you need to modify git parameters and specify variable in pipeline. See [README.md](https://github.com/xoac/rust-azure-pipelines/blob/master/README.md)
 
 # Deploy doc
-- template: ci/github-deploy-doc.yml@templates
-  parameters:
-    name: github_deploy_doc
-    dependsOn:
-      - cargo_test_stable
-      - cargo_check
-      - cargo_cross
-    github:
-     user: xoac
-     email: sylwesterrapala@outlook.com
-     repo: https://github.com/xoac/rust-azure-pipelines/
+# - template: ci/github-deploy-doc.yml@templates
+#   parameters:
+#     name: github_deploy_doc
+#     dependsOn:
+#       - cargo_test_stable
+#       - cargo_check
+#       - cargo_cross
+#     github:
+#      user: xoac
+#      email: sylwesterrapala@outlook.com
+#      repo: https://github.com/xoac/rust-azure-pipelines/
 
 # Release binary
 - template: ci/github-release.yml@templates
@@ -109,6 +109,6 @@ jobs:
     - x86_64-pc-windows-msvc
     - x86_64-apple-darwin
    github:
-    gitHubConnection: PipelinesTemplates # TODO githubConnection that allow you write to repo.
-    repositoryName: xoac/rust-azure-pipelines
+    gitHubConnection: github_release # TODO githubConnection that allow you write to repo.
+    repositoryName: foxundermoon/yunpian-marketing-rest-mock
     isPreRelease: true
