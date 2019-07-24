@@ -34,7 +34,7 @@ jobs:
   parameters:
     name: minrust
     # rust_version: 1.38.0 # The 2018 edition
-    rust_version: nightly
+    rust_version: dev
     displayName: Check rust min ver
 
 ################
