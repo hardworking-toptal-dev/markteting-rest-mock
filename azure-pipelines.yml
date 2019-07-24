@@ -61,16 +61,16 @@ jobs:
 
 # Test cross
 # List of supported targets is available here: https://github.com/rust-embedded/cross#supported-targets
-- template: ci/cargo-cross.yml@templates
-  parameters:
-    name: cargo_cross
-    displayName: Cross check and test
-    rust_version: nightly
-    check_targets:
-      - i686-unknown-freebsd
-      # - thumbv7em-none-eabihf # bare metal require no_std! future enabled.
-    test_targets:
-      - x86_64-unknown-linux-gnu
+# - template: ci/cargo-cross.yml@templates
+#   parameters:
+#     name: cargo_cross
+#     displayName: Cross check and test
+#     rust_version: nightly
+#     check_targets:
+#       - i686-unknown-freebsd
+#       # - thumbv7em-none-eabihf # bare metal require no_std! future enabled.
+#     test_targets:
+#       - x86_64-unknown-linux-gnu
 
 ###################
 #    DEPLOY PART  #
@@ -99,7 +99,7 @@ jobs:
       - rustfmt
       - cargo_check
       - cargo_test_nightly
-      - cargo_cross
+      # - cargo_cross
    rust_version: nightly
    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
    contents: |
