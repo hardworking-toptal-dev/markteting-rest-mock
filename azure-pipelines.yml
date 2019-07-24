@@ -100,7 +100,7 @@ jobs:
       # - minrust
       - rustfmt
       - cargo_check
-      - cargo_test_stable
+      - cargo_test_nightly
       - cargo_cross
    rust_version: nightly
    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/v'))
